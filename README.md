@@ -53,7 +53,25 @@ Select from a different configured Active Directory server named `examplead`
 
 #### When you pass a filename as an argument, then sqldap parses the file and executes the queries that are defined this file
 
-`./sqldap queries.sql`
+```bash
+[user@awesome ~]$ sqldap queries.sql
+
+Using config file /home/user/sqldap/sqldap.ini
+Using server: exampleldap (ldap://ldap.example.com:389)
+
++-------+-------------+--------------------+----------+
+| uid   | cn          | passwordretrycount | ou       |
++-------+-------------+--------------------+----------+
+| user1 | Username1   | 3                  | group1   |
++-------+-------------+--------------------+----------+
+| user2 | Username2   | 3                  | group2   |
++-------+-------------+--------------------+----------+
+| user3 | Username3   | 3                  | group3   |
++-------+-------------+--------------------+----------+
+
+[user@awesome ~]$
+
+```
 
 ### Compiling from source
 First you'll have to install Rust on your system:
