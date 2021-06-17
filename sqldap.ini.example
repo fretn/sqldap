@@ -1,0 +1,18 @@
+[exampleldap]
+connection=ldap://ldap.domain.com:389
+binddn=uid=administrator,ou=Admins,ou=example,dc=domain,dc=com
+bindpassword=YOURPASSWORD
+[exampleldap.tables]
+people=ou=people,o=department,ou=example,dc=domain,dc=com
+group=ou=Group,o=department,ou=example,dc=domain,dc=com
+[exampleldap.queries]
+passwordretrycount=SELECT uid,cn,passwordretrycount,ou FROM @people WHERE passwordretrycount>=3
+testquery=SELECT cn FROM @group WHERE memberuid=username
+
+[examplead]
+connection=ldaps://ad.domain.com:636
+binddn="CN=Administrator,OU=group,OU=Users,OU=department,DC=example,DC=com"
+bindpassword='secretpassword'
+[examplead.tables]
+people=OU=Users,OU=department,DC=example,DC=com
+group=OU=Groups,OU=department,DC=example,DC=com
